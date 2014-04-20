@@ -7,8 +7,8 @@
 
 features <- read.table("~/UCI HAR Dataset/features.txt", quote="\"")
 activity_labels <- read.table("~/UCI HAR Dataset/activity_labels.txt", quote="\"")
-subject_test <- read.table("~/UCI HAR Dataset/test/subject_test.txt", header=T, quote="\"")
-subject_train <- read.table("~/UCI HAR Dataset/train/subject_train.txt", header=T, quote="\"")
+subject_test <- read.table("~/UCI HAR Dataset/test/subject_test.txt", header=F, quote="\"")
+subject_train <- read.table("~/UCI HAR Dataset/train/subject_train.txt", header=F, quote="\"")
 x_test <- read.table("~/UCI HAR Dataset/test/X_test.txt", quote="\"")
 y_test <- read.table("~/UCI HAR Dataset/test/y_test.txt", quote="\"")
 x_train <- read.table("~/UCI HAR Dataset/train/X_train.txt", quote="\"")
@@ -20,6 +20,7 @@ table(y_train)
 ncol(x_test)
 ncol(x_train)
 nrow(features)
+nrow(x_test)+nrow(x_train)
 nrow(subject_test)+nrow(subject_train)
 
 ## Third Step: Substitute the activity labels code by descriptive names
