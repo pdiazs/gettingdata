@@ -1,13 +1,18 @@
+#### IMPORTANT  if you want to keep your wd at a specific place 
+####substitute ~ by your specific path i.e (D:/R/Coursera) where data are located
+
+
+
 ## First step: Reading Data into Environment
 
-features <- read.table("D:/R/Coursera/UCI HAR Dataset/features.txt", quote="\"")
-activity_labels <- read.table("D:/R/Coursera/UCI HAR Dataset/activity_labels.txt", quote="\"")
-subject_test <- read.table("D:/R/Coursera/UCI HAR Dataset/test/subject_test.txt", header=T, quote="\"")
-subject_train <- read.table("D:/R/Coursera/UCI HAR Dataset/train/subject_train.txt", header=T, quote="\"")
-x_test <- read.table("D:/R/Coursera/UCI HAR Dataset/test/X_test.txt", quote="\"")
-y_test <- read.table("D:/R/Coursera/UCI HAR Dataset/test/y_test.txt", quote="\"")
-x_train <- read.table("D:/R/Coursera/UCI HAR Dataset/train/X_train.txt", quote="\"")
-y_train <- read.table("D:/R/Coursera/UCI HAR Dataset/train/y_train.txt", quote="\"")
+features <- read.table("~/UCI HAR Dataset/features.txt", quote="\"")
+activity_labels <- read.table("~/UCI HAR Dataset/activity_labels.txt", quote="\"")
+subject_test <- read.table("~/UCI HAR Dataset/test/subject_test.txt", header=T, quote="\"")
+subject_train <- read.table("~/UCI HAR Dataset/train/subject_train.txt", header=T, quote="\"")
+x_test <- read.table("~/UCI HAR Dataset/test/X_test.txt", quote="\"")
+y_test <- read.table("~/UCI HAR Dataset/test/y_test.txt", quote="\"")
+x_train <- read.table("~/UCI HAR Dataset/train/X_train.txt", quote="\"")
+y_train <- read.table("~/UCI HAR Dataset/train/y_train.txt", quote="\"")
 
 ## Second step: Present summary of data and check homogeneity of data
 table(y_test)
@@ -31,6 +36,8 @@ x_both<-rbind(x_test,x_train)
 y_both<-rbind(y_test,y_train)
 names(x_both)<-features[,2]
 names(y_both)<-"Activities"
+names(subject_test)<-"Subject"
+names(subject_train)<-"Subject"
 subject_both<-rbind(subject_test,subject_train)
 names(subject_both)<-"Subject"
 combidata<-cbind(x_both,y_both,subject_both)
